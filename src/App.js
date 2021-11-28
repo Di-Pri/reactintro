@@ -62,6 +62,7 @@ export default function App() {
     <div className="App">
       <Nav />
       <Main onCardMove={onCardMove} onCardDelete={onCardDelete} onFormSubmit={onFormSubmit} cards={cards} />
+      {cards.length === 0 && <h2>Loading</h2>}
     </div>
   );
 }

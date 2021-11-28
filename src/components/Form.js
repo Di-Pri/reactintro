@@ -32,7 +32,7 @@ export default function Form(props) {
         Color
         <input type="color" onChange={colorChanged} name="color" value={color} />
       </label>
-      <input type="submit" value="Save" />
+      <input disabled={title.length === 0} type="submit" value="Save" />
     </form>
   );
 }
