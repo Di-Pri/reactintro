@@ -9,7 +9,7 @@ export default function Form(props) {
       title: title,
       list: "todo",
       added: Date.now(),
-      id: Math.random(),
+      _id: Math.random(),
       color: color,
       assignedTo: ["di"],
     });
