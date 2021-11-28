@@ -22,7 +22,8 @@ export default function App() {
     },
   ]);
 
-  function clicked(e) {
+  function onFormSubmit(data) {
+    console.log("form submited", data);
     setCards(
       cards.concat({
         title: "OMG, did that just happen",
@@ -35,11 +36,26 @@ export default function App() {
     );
   }
 
+  function onCardMove(id, whereTo) {
+    console.log(id, whereTo);
+    const nextCards = cards.map((card) => {
+      if (card.id === id) {
+        card.list = whereTo;
+      }
+      return card;
+    });
+    setCards(nextCards);
+  }
+
+  function onCardDelete(id) {
+    const nextCards = cards.filter((card) => card.id !== id);
+    setCards(nextCards);
+  }
+
   return (
     <div className="App">
       <Nav />
-      <Main cards={cards} />
-      <button onClick={clicked}>Click me</button>
+      <Main onCardMove={onCardMove} onCardDelete={onCardDelete} onFormSubmit={onFormSubmit} cards={cards} />
     </div>
   );
 }
